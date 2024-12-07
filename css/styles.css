@@ -1,3 +1,134 @@
 body {
-    background-color: rgba(108, 186, 255, 0.963);
+    background-color: #F5EFE6;
+    margin: 0;
+}
+
+.header {
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    background-color: #3C674A;
+    flex-direction: row;
+
+}
+
+.header ul {
+    width: 90%;
+    align-items: center;
+
+}
+
+.header ul li {
+    list-style-type: none;
+}
+
+.header img {
+    width: 10%;
+    height: auto;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+main h1 {
+    width: 100%;
+    text-align: center;
+}
+
+main h2 {
+    width: 100%;
+    text-align: center;
+}
+
+main p {
+    width: 60%;
+    margin: 50px auto;
+}
+
+main .table {
+    width: 30%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid #1E1E1E;
+}
+
+main .table th,
+main .table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #1E1E1E;
+}
+
+main .table .position {
+    background-color: #F8F3E6
+}
+
+main .table .position,
+main .table .name,
+main .table .age {
+    background-color: #E97A6B;
+}
+
+.newInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newfname,
+#newIname,
+#newfdate {
+    width: 15em;
+    margin: 10px;
+}
+
+
+
+
+main .reservation-form {
+    width: 30%;
+    margin: auto;
+    border-collapse: collapse;
+    border: 2px solid #1E1E1E;
+}
+
+main .reservation-form th,
+main .reservation-form td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #1E1E1E;
+}
+
+main .reservation-form .position {
+    background-color: #F8F3E6
+}
+
+main .reservation-form .firstName,
+main .reservation-form .lastName,
+main .reservation-form .dateAndtime,
+main .reservation-form .emailAdd,
+main .reservation-form .numberOfguests {
+    background-color: #E97A6B;
+}
+
+.newInputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#newfname,
+#newIname,
+#newfdate {
+    width: 15em;
+    margin: 10px;
+}
+
+main .body h2 {
+    width: 100%;
+    text-align: center;
 }
