@@ -1,37 +1,121 @@
-body {
-    background-color: #F5EFE6;
-    margin: 0;
+html {
+    color: #F1E1C6;
 }
 
-.header {
+body {
+    background-color: #F1E1C6;
+    margin: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.slider {
+    width: 100%;
+    height: 30em;
+    overflow: hidden;
+    margin: 0px auto;
+    position: relative;
+    z-index: -5;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+
+}
+
+.slide {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.slide img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+header {
     align-items: center;
     width: 100%;
     height: 80px;
     display: flex;
-    background-color: #3C674A;
+    background-color: #afb185;
     flex-direction: row;
-
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 1px 1px 1px #797a5d;
 }
 
-.header ul {
+header ul {
     width: 90%;
     align-items: center;
-
 }
 
-.header ul li {
+header ul li {
     list-style-type: none;
+    padding: 0px 100px;
 }
 
-.header img {
+header ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+header img {
     width: 10%;
     height: auto;
+    max-height: 80px;
+    object-fit: contain;
+}
+
+main h2 {
+    width: 100%;
+    text-align: center;
+}
+
+header .navigation .dropdown-menu {
+    position: absolute;
+    top: 60px;
+    padding: 10px 30px;
+    background-color: #afb185;
+    border-radius: 12px;
+    transition: transform 500ms ease-in-out;
+    transform: translateX(-30px) scaleY(0);
+}
+
+header .navigation .square {
+    position: absolute;
+    top: 55px;
+    margin: 0 auto;
+    width: 30px;
+    height: 30px;
+    background-color: #afb185;
+    border-radius: 3px;
+    transform: rotate(45deg);
+    transition: transform 500ms ease-in;
+    transform-origin: center;
+    transform: scaleY(0);
+}
+
+header .navigation .dropdown-menu.open_menu {
+    transform: translateX(-30px) scaleY(1);
+}
+
+header .navigation .square.open_menu {
+    transform: rotate(45deg) scaleY(1);
+}
+
+header .navigation .dropdown-menu a {
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    margin: 10px auto;
 }
 
 .navigation {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
 }
 
 main h1 {
@@ -53,24 +137,24 @@ main .table {
     width: 30%;
     margin: auto;
     border-collapse: collapse;
-    border: 2px solid #1E1E1E;
+    border: 2px solid #afb185;
 }
 
 main .table th,
 main .table td {
     text-align: center;
     padding: 10px;
-    border: 1px solid #1E1E1E;
+    border: 1px solid #afb185;
 }
 
 main .table .position {
-    background-color: #F8F3E6
+    background-color: #afb185;
 }
 
 main .table .position,
 main .table .name,
 main .table .age {
-    background-color: #E97A6B;
+    background-color: #ffffff;
 }
 
 .newInputs {
@@ -86,33 +170,28 @@ main .table .age {
     margin: 10px;
 }
 
-
-
-
 main .reservation-form {
     width: 30%;
     margin: auto;
     border-collapse: collapse;
-    border: 2px solid #1E1E1E;
+    border: 2px solid #afb185;
 }
 
 main .reservation-form th,
 main .reservation-form td {
     text-align: center;
     padding: 10px;
-    border: 1px solid #1E1E1E;
+    border: 1px solid #afb185;
 }
 
 main .reservation-form .position {
-    background-color: #F8F3E6
+    background-color: #ffffff;
 }
 
 main .reservation-form .firstName,
 main .reservation-form .lastName,
-main .reservation-form .dateAndtime,
-main .reservation-form .emailAdd,
-main .reservation-form .numberOfguests {
-    background-color: #E97A6B;
+main .reservation-form .emailAdd {
+    background-color: #ffffff;
 }
 
 .newInputs {
@@ -128,7 +207,63 @@ main .reservation-form .numberOfguests {
     margin: 10px;
 }
 
-main .body h2 {
-    width: 100%;
-    text-align: center;
+
+.submitR {
+    background-color: #D32F2F;
+    border-radius: 12px;
+    border-color: #F1E1C6;
+    align-self: center;
+    justify-content: center;
+    flex: auto;
+    font-weight: bold;
+    font-size: 13px;
+    color: #F1E1C6;
+    padding: 7px;
+    margin: 7px;
+}
+
+button.submitR:hover {
+    background-color: #B71C1C;
+    border-color: #afb185;
+    color: #afb185;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    header img {
+        height: 50px;
+    }
+}
+
+h1 {
+    font-weight: bolder;
+    color: #afb185;
+
+}
+
+
+p {
+    color: #ffffff;
+}
+
+.story {
+    color: #afb185;
+}
+
+table {
+    color: #afb185;
+}
+
+h1 {
+    font-size: 3em;
+    color: white;
+    text-shadow: 3px 3px 6px #797a5d;
+    /* Makes text more legible */
+    font-weight: bold;
+    background-color: #afb185;
+    /* Optional: semi-transparent dark background */
+    padding: 10px;
+    /* Padding for better visibility */
+    border-radius: 5px;
+    /* Rounded corners for a polished look */
 }

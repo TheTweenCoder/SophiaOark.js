@@ -101,9 +101,27 @@ function updateTableReservation(reservations) {
 updateTableReservation(reservations);
 updateTableStaff(alunos)
 
-const submitR.addEventListener("click", function (event) {
+const submitR = document.querySelector(".submitR");
+
+submitR.addEventListener("click", function (event) {
     if (studentName.value !== "" && studentName.value !== "") {
         adicionarAluno(studentName.value, Number(studentScore.value));
         updateTableReservation()
     }
 });
+
+
+const menu = document.querySelector(".menu");
+const dropdown = document.querySelector(".dropdown-menu");
+const square = document.querySelector(".square");
+
+menu.addEventListener("mouseover", function (e) {
+    dropdown.classList.add("open_menu");
+    square.classList.add("open_menu");
+});
+
+menu.addEventListener("mouseout", event => {
+    dropdown.classList.remove("open_menu");
+    square.classList.remove("open_menu");
+});
+

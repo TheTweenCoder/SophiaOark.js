@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzano</title>
+    <link rel="stylesheet" href="../css/stylesViewMenu.css">
+    <style>
+        .cart-container {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="menuBody">
+    <header>
+        <img class="logo" src="/imagems/logopizza.jpg" alt="">
+        <ul class="navigation">
+            <li class="menu">
+                <a href="../html/index.html">Home</a>
+                <div class="square"></div>
+                <div class="dropdown-menu">
+                    <a href="#story" class="btn">Our Story</a>
+                    <a href="#newsletter">Newsletter</a>
+                </div>
+            </li>
+            <li class="menu">
+                <a href="../html/ViewMenu.html">Menu</a>
+                <div class="square"></div>
+                <div class="dropdown-menu">
+                    <a href="#" class="btn">View Menu</a>
+                    <a>Reserve a Table</a>
+                    <a>Locations</a>
+                    <a>Contacts</a>
+                </div>
+            </li>
+        </ul>
+    </header>
+
+    <div class="menu-container">
+        <h1>OUR MENU</h1>
+        <div class="pizza-grid">
+            <div class="pizza-card">
+                <img src="../imagems/Pizza1.jpg" alt="Margherita Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Margherita</div>
+                    <div class="pizza-description">Classic Italian pizza with a simple yet delicious combination of
+                        fresh mozzarella, tomato sauce, and basil. A perfect choice for those who love a light,
+                        flavorful pizza.</div>
+                    <div class="pizza-price">10.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Margherita" data-price="10.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="pizza-card">
+                <img src="../imagems/Pizza2.jpg" alt="Pepperoni Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Pepperoni</div>
+                    <div class="pizza-description">A favorite for meat lovers, this pizza features a generous topping of
+                        spicy pepperoni slices on a bed of mozzarella and tangy tomato sauce. A classic that never
+                        disappoints.</div>
+                    <div class="pizza-price">12.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Pepperoni" data-price="12.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="pizza-card">
+                <img src="../imagems/Pizza3.jpg" alt="Veggie Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Veggie Pizza</div>
+                    <div class="pizza-description">A colorful combination of bell peppers, onions, mushrooms, black
+                        olives, and spinach atop a layer of mozzarella and tomato sauce. This pizza is packed with fresh
+                        vegetables, offering a delicious, wholesome, and satisfying flavor.</div>
+                    <div class="pizza-price">9.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Veggie Pizza" data-price="9.00">Add to
+                        Cart</button>
+                </div>
+            </div>
+            <div class="pizza-card">
+                <img src="../imagems/HawaiianPizza.jpg" alt="Hawaiian Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Hawaiian</div>
+                    <div class="pizza-description">This tropical-inspired pizza combines savory ham and sweet pineapple,
+                        all melted together with mozzarella cheese and tomato sauce. It’s the sweet and salty combo that
+                        everyone loves to debate.</div>
+                    <div class="pizza-price">10.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Hawaiian" data-price="10.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="pizza-card">
+                <img src="../imagems/Quattro Formaggi.jpg" alt="Quattro Formaggi Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Quattro Formaggi</div>
+                    <div class="pizza-description">A rich, cheesy delight with a mix of mozzarella, gorgonzola,
+                        parmesan, and fontina cheeses. The perfect pizza for cheese lovers seeking something indulgent
+                        and full of flavor.</div>
+                    <div class="pizza-price">12.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Quattro Formaggi" data-price="12.00">Add to
+                        Cart</button>
+                </div>
+            </div>
+            <div class="pizza-card">
+                <img src="../imagems/Meat Lovers.jpg" alt="Meat Lovers Pizza" class="pizza-image">
+                <div class="pizza-content">
+                    <div class="pizza-name">Meat Lovers</div>
+                    <div class="pizza-description">Packed with sausage, bacon, pepperoni, and ham, this pizza is a
+                        hearty feast for anyone craving a meat-filled delight. The combination of salty and savory
+                        toppings makes each bite irresistible.</div>
+                    <div class="pizza-price">11.00 €</div>
+                    <button class="order-btn add-to-cart" data-name="Meat Lovers" data-price="11.00">Add to
+                        Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Container -->
+    <div class="cart-container" id="cart">
+        <div class="cart-header">Your Cart</div>
+        <div class="cart-items" id="cart-items">
+            <!-- Items will be dynamically added here -->
+        </div>
+        <div class="cart-total" id="cart-total">Total: 0.00 €</div>
+        <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+    <!-- View Cart Button -->
+    <button class="view-cart-btn" id="view-cart-btn">View Cart</button>
+
+    <script>
+        let cart = []; // Cart array to store items
+
+        // Function to update the cart display
+        function updateCart() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalElement = document.getElementById('cart-total');
+            cartItemsContainer.innerHTML = '';
+
+            let total = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span class="cart-item-name">${item.name}</span>
+                    <span class="cart-item-price">${item.price.toFixed(2)} €</span>
+                `;
+                cartItemsContainer.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotalElement.textContent = `Total: ${total.toFixed(2)} €`;
+        }
+
+        // Add event listener to all "Add to Cart" buttons
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = parseFloat(button.getAttribute('data-price'));
+
+                cart.push({ name, price }); // Add item to cart
+                updateCart(); // Update the cart UI
+            });
+        });
+
+        // Toggle cart visibility
+        const cartContainer = document.getElementById('cart');
+        const viewCartBtn = document.getElementById('view-cart-btn');
+
+        viewCartBtn.addEventListener('click', () => {
+            const isCartVisible = cartContainer.style.display === 'block';
+            cartContainer.style.display = isCartVisible ? 'none' : 'block';
+        });
+
+        // Checkout function
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+            alert('Thank you for your order!');
+            cart = []; // Clear the cart
+            updateCart(); // Update the cart UI
+        }
+    </script>
+</body>
+
+</html>
