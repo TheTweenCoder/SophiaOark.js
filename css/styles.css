@@ -163,6 +163,10 @@ main .table .age {
     align-items: center;
 }
 
+.newInputs form label {
+    color: white;
+}
+
 #newfname,
 #newIname,
 #newfdate {
