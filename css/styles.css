@@ -292,3 +292,17 @@ h1 {
     border-radius: 5px;
     /* Rounded corners for a polished look */
 }
+
+.button {
+    text-decoration: none;
+    color: #afb185;
+    background-color: #ffffff;
+    border-radius: 12px;
+}
+
+.button :hover {
+    text-decoration: none;
+    color: #8d8e6b;
+    background-color: #dcdcdc;
+    border-radius: 12px;
+}
